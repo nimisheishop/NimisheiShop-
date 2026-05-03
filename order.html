@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Orders</title>
+<style>
+body{font-family:sans-serif;background:#f5f5f5;padding:10px}
+.order{background:white;padding:10px;margin-bottom:10px;border-radius:10px}
+</style>
+</head>
+
+<body>
+
+<h2>My Orders</h2>
+
+<div id="orders"></div>
+
+<a href="index.html">← Back Home</a>
+
+<script>
+let user = localStorage.getItem("currentUser");
+
+if(!user){
+  alert("Login first!");
+  window.location.href = "login.html";
+}
+
+let orders = JSON.parse(localStorage.getItem("orders_"+user)) || [];
+
+let container = document.getElementById("orders");
+
+orders.forEach(order=>{
+  let html = "<div class='order'>";
+  
+  order.items.forEach(i=>{
+    html += `<p>${i.name} - ৳${i.price}</p>`;
+  });
+
+  html += `<p><b>Total: ৳${order.total}</b></p>`;
+  html += `<p>${order.name}, ${order.address}, ${order.phone}</p>`;
+  html += "</div>";
+
+  container.innerHTML += html;
+});
+</script>
+
+</body>
+</html>

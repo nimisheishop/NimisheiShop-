@@ -1,0 +1,60 @@
+orders.forEach((order,orders.forEach((order, index)=>{
+  let html = "<div class='box'>";
+
+  html += "<p><b>User:</b> " + user + "</p>";
+
+  order.items.forEach(i=>{
+    html += `<p>${i.name} - ৳${i.price}</p>`;
+  });
+
+  html += `<p><b>Total:</b> ৳${order.total}</p>`;
+  html += `<p>Payment: ${order.payment} (${order.number})</p>`;
+  html += `<p>${order.name}, ${order.address}, ${order.phone}</p>`;
+
+  html += `<p><b>Status:</b> ${order.status}</p>`;
+
+  html += `
+    <button onclick="markDelivered('${key}', ${index})">
+      Mark as Delivered
+    </button>
+  `;
+
+  html += "</div>";
+
+  container.innerHTML += html;
+}); index)=>{
+  let html = "<div class='box'>";
+
+  html += "<p><b>User:</b> " + user + "</p>";
+
+  order.items.forEach(i=>{
+    html += `<p>${i.name} - ৳${i.price}</p>`;
+  });
+
+  html += `<p><b>Total:</b> ৳${order.total}</p>`;
+  html += `<p>Payment: ${order.payment} (${order.number})</p>`;
+  html += `<p>${order.name}, ${order.address}, ${order.phone}</p>`;
+
+  html += `<p><b>Status:</b> ${order.status}</p>`;
+
+  html += `
+    <button onclick="markDelivered('${key}', ${index})">
+      Mark as Delivered
+    </button>
+  `;
+
+  html += "</div>";
+
+  container.innerHTML += html;
+});
+<script>
+function markDelivered(key, index){
+  let orders = JSON.parse(localStorage.getItem(key));
+
+html += `<p>Status: <b>${order.status}</b></p>`;
+  localStorage.setItem(key, JSON.stringify(orders));
+
+  alert("Marked as Delivered!");
+  location.reload();
+}
+</script>
